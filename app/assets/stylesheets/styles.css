@@ -1,0 +1,24 @@
+canvas {
+  border: 1px solid black;
+}
+
+#canvas-div {
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+}
+
+#save-canvas {
+  display: inline;
+  width = 100px;
+  height = 50px;
+  margin: auto;
+}
+
+
+
+
+h1 {
+  text-align: center;
+}
