@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225190812) do
+ActiveRecord::Schema.define(:version => 20130225230841) do
 
   create_table "images", :force => true do |t|
-    t.binary   "img"
+    t.text     "img"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

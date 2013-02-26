@@ -1,4 +1,4 @@
-canvas {
+#canvas {
   border: 1px solid black;
 }
 
@@ -16,9 +16,14 @@ canvas {
   margin: auto;
 }
 
-
-
-
 h1 {
   text-align: center;
+}
+
+img {
+  border: 1px solid black;
+/*  width: 600px;
+  height: 400px;*/
+  margin: auto;
+  position: relative;
 }

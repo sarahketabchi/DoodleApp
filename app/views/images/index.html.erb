@@ -1,7 +1,8 @@
 <h1>Image Index</h1>
 
 <% @images.each do |image| %>
-  <%= image.id %>
+
+  <%= link_to image.id, image_path(image) %>
 <% end %>
 
 <%= link_to "Create a new doodle", new_image_path %>

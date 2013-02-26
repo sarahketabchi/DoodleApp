@@ -1,19 +1,28 @@
 <h1>Doodle!</h1>
 
 <div id="canvas-div">
-  <canvas class="canvas" width="600px" height="400px"></canvas>
+  <canvas id="canvas" width="600px" height="400px"></canvas>
 </div>
 <div id="save-canvas">
   Save!  
 </div>
 
-
 <script>
   $(function() {
-    var canvas = $('canvas');
+    var canvas = $('#canvas');
     var ctx = canvas.get(0).getContext("2d");
 
     pic = new Doodle.Pic(ctx);
 
+    $('#save-canvas').click(function () {
+      var canvas = document.getElementById('canvas');
+      var imgData = canvas.toDataURL("image/png");
+
+      var params = { user_id: 1, img: imgData };
+
+      $.post('/images/', params, function () {
+        alert("saved :)");
+      }, "json");
+    });
   });
 </script>
