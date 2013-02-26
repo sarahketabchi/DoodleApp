@@ -1,4 +1,7 @@
 class ImagesController < ApplicationController
+  before_filter :authenticate_user!
+  include ImagesHelper
+
   def index
     @images = Image.all
   end
@@ -24,5 +27,8 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+
+    @user = current_user
+    @favorited = favorited?(current_user.id, @image.id)
   end
 end
