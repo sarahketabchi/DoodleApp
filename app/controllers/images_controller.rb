@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
 
   def create
     @image = Image.new;
-    @image.user_id = params[:user_id];
+    @image.user_id = current_user.id;
     @image.img = params[:img];
 
     if @image.save!

@@ -1,22 +1,19 @@
-<h1><%= @image.id %></hi>
-
-<img src=<%= "#{@image.img}" %>>
-
-<%#= button_to "Favorite", image_favorite_path(@image), :action => "create", :remote => true, :id => "fav", :hidden => @favorited %>
-
-<%#= button_to "Unfavorite", image_favorite_path(@image), :method => :delete, :remote => true, :hidden => (not @favorited), :id => "unfav" %>
+<h1><%= @image.id %></h1>
 
 
-<%= button_to "Favorite", image_favorite_path(@image), :action => "create", :remote => true, :id => "fav", :hidden => @favorited %>
+  <img src=<%= "#{@image.img}" %>>
 
+  <%= button_to "Favorite", image_favorite_path(@image), :remote => true, :id => "fav", :hidden => @favorited %>
 
-<%= button_to "Unfavorite", image_favorite_path(@image), :method => :delete, :remote => true, :hidden => (not @favorited), :id => "unfav" %>
+  <%= button_to "Unfavorite", image_favorite_path(@image), :method => :delete, :remote => true, :id => "unfav", :hidden => (not @favorited) %>
+
 
 
 <script type="text/javascript">
   $(function () {
-    //$('.button_to').on('ajax:success', function () {
+    // $('.button_to').on('ajax:success', function () {
     $('.button_to').on("click", function () {
+      console.log("yay");
       $('#fav, #unfav').toggle();
     });
   });

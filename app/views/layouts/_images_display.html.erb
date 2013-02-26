@@ -1,3 +1,8 @@
+<ul class="image-list">
 <% @images.each do |image| %>
-  <%= link_to image.id, image_path(image) %>
+  <li class="image-list-item">
+    <%= link_to image.id, image_path(image) %>
+    <img class="img-thumbnail" src=<%= "#{image.img}" %>>
+  </li>
 <% end %>
+</ul>

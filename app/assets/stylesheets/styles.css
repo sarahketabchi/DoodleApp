@@ -11,8 +11,8 @@
 
 #save-canvas {
   display: inline;
-  width = 100px;
-  height = 50px;
+  width: 100px;
+  height: 50px;
   margin: auto;
 }
 
@@ -27,3 +27,15 @@ img {
   margin: auto;
   position: relative;
 }
+
+.img-thumbnail {
+  width: 150px;
+  height: 100px;
+}
+
+/*.show-image-container {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  margin: auto;
+}*/

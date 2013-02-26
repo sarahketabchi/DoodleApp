@@ -1,7 +1,7 @@
 <h1>Doodle!</h1>
 
 <div id="canvas-div">
-  <canvas id="canvas" width="600px" height="400px"></canvas>
+  <canvas id="canvas" width="600px" height="400px" data-user-id="<%= current_user.id %>"></canvas>
 </div>
 <div id="save-canvas">
   Save!  
@@ -17,8 +17,14 @@
     $('#save-canvas').click(function () {
       var canvas = document.getElementById('canvas');
       var imgData = canvas.toDataURL("image/png");
+      var userID = $('#canvas').attr('data-user-id');
+      var headMeta = $('head meta');
+      var csrfToken = headMeta[1].attr("content");
 
-      var params = { user_id: 1, img: imgData };
+
+      console.log(csrfToken);
+
+      var params = { user_id: userID, img: imgData };
 
       $.post('/images/', params, function () {
         alert("saved :)");
