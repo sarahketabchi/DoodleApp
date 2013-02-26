@@ -18,13 +18,12 @@
       var canvas = document.getElementById('canvas');
       var imgData = canvas.toDataURL("image/png");
       var userID = $('#canvas').attr('data-user-id');
-      var headMeta = $('head meta');
-      var csrfToken = headMeta[1].attr("content");
+      var csrfToken = $('meta[name=csrf-token]').attr('content');
 
 
       console.log(csrfToken);
 
-      var params = { user_id: userID, img: imgData };
+      var params = { user_id: userID, img: imgData, authenticity_token: csrfToken };
 
       $.post('/images/', params, function () {
         alert("saved :)");
