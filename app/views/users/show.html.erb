@@ -1,13 +1,15 @@
 <h1>Info for <%= @user.email %></h1>
 
 Images:
-<%= render 'layouts/images_display.html.erb' %>
+<div class="image-thumbnails-list">
+  <%= render :partial => 'images/images_display.html.erb', 
+             :collection => @images, :as => :image %>
+</div>
 
 Favorited Images:
 <div class="image-thumbnails-list">
-  <% @favorited_images.each do |image| %>
-      <%= link_to image_tag(image.img, :height => 100, :width => 150, :class => "img-thumbnail"), image_path(image) %>
-  <% end %>
+  <%= render :partial => 'images/images_display.html.erb', 
+             :collection => @favorited_images, :as => :image %>
 </div>
 
 

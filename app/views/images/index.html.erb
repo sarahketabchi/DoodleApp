@@ -1,5 +1,6 @@
 <h1>Image Index</h1>
 
-<%= render 'layouts/images_display.html.erb' %>
+<%= render :partial => 'images_display.html.erb', 
+           :collection => @images, :as => :image %>
 
 <%= link_to "Create a new doodle", new_image_path %>
