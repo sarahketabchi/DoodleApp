@@ -17,6 +17,8 @@ class ImagesController < ApplicationController
 
     if @image.save!
       respond_to do |format|
+        # REV: does this send down the whole image on save? That could
+        # be a bunch of data the user already has.
         format.json { render :json => @image }
       end
       # redirect_to root_path

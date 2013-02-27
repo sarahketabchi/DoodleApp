@@ -1,8 +1,13 @@
+// REV: file should be named underscorized
 var Doodle = (function () {
   var Pic = function(ctx) {
     var drawing = false;
     var that = this;
 
+    // REV: This isn't very OO, because creating a Pic object will
+    // bind to *every* canvas element on the page; I'd pass the
+    // element in.
+    // REV: though I suppose there's only one canvas el.
     $('#canvas').mousedown(function (event) {
       console.log(event.pageX - $(this).parent().offset().left);
       var x = event.pageX - $(this).parent().offset().left;
