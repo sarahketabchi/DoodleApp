@@ -1,12 +1,10 @@
-<h1><%= @image.id %></h1>
 
+<img src=<%= "#{@image.img}" %>>
 
-  <img src=<%= "#{@image.img}" %>>
-
-  <%= button_to "Favorite", image_favorite_path(@image), :remote => true, :id => "fav", :hidden => @favorited %>
-
-  <%= button_to "Unfavorite", image_favorite_path(@image), :method => :delete, :remote => true, :id => "unfav", :hidden => (not @favorited) %>
-
+<!-- favorite -->
+<%= button_to "", image_favorite_path(@image), :remote => true, :id => "fav", :hidden => @favorited %>
+<!-- unfavorite -->
+<%= button_to "", image_favorite_path(@image), :method => :delete, :remote => true, :id => "unfav", :hidden => (not @favorited) %>
 
 
 <script type="text/javascript">

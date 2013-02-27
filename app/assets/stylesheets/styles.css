@@ -22,10 +22,9 @@ h1 {
 
 img {
   border: 1px solid black;
-/*  width: 600px;
-  height: 400px;*/
   margin: auto;
   position: relative;
+  display: block;
 }
 
 .img-thumbnail {
@@ -33,9 +32,22 @@ img {
   height: 100px;
 }
 
-/*.show-image-container {
-  width: 600px;
-  height: 400px;
-  position: relative;
-  margin: auto;
-}*/
+#fav {
+  width: 30px;
+  height: 30px;
+  background-image: url('invis_center_heart_icon.png');
+  background-size: 100%;
+  background-color: white;
+  border: none;
+  float: right;
+}
+
+#unfav {
+  width: 30px;
+  height: 30px;
+  background-image: url('invis_center_heart_icon.png');
+  background-size: 100%;
+  background-color: red;
+  border: none;
+  float: right;
+}

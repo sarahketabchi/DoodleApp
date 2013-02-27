@@ -27,21 +27,11 @@ var Doodle = (function () {
       that.drawing = false;
     });  
 
-    // $('#save-canvas').click(function () {
-    //   alert("yay");
-    //   that.save();
-    // });
-
-    this.save = function() {
-      alert("saving");
-      var canvas = document.getElementById('canvas');
-      var img = canvas.toDataURL("image/png");
-
-      // open saved img in new window
-      //window.open(img);
-
-      // ajax.post to server
-    };
+    // this.save = function() {
+    //   alert("saving");
+    //   var canvas = document.getElementById('canvas');
+    //   var img = canvas.toDataURL("image/png");
+    // };
   }
 
   return {
