@@ -19,7 +19,7 @@ class ImagesController < ApplicationController
       respond_to do |format|
         format.json { render :json => @image }
       end
-      # redirect_to root_path
+      # redirect_to root_path?
     else
       render :nothing => true, :status => 500
     end
@@ -30,5 +30,12 @@ class ImagesController < ApplicationController
 
     @user = current_user
     @favorited = favorited?(current_user.id, @image.id)
+  end
+
+  def destroy
+    @image = Image.find(params[:id])
+    @image.destroy
+
+    redirect_to user_path(current_user)
   end
 end
