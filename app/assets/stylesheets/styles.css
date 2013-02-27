@@ -30,6 +30,16 @@ img {
 .img-thumbnail {
   width: 150px;
   height: 100px;
+  display: inline;
+  margin: 10px;
+
+  position: relative;
+
+}
+
+.image-thumbnails-list {
+  display: block;
+  margin: 2px;
 }
 
 #fav {
