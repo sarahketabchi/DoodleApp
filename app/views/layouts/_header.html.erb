@@ -1,7 +1,7 @@
 <%= link_to "Home", root_path %>
 
 
-<!-- <div id="navbar-right"> -->
+
   <%= link_to "Create a new doodle", new_image_path %>
 
   <% if user_signed_in? %>
@@ -9,4 +9,3 @@
   <% else %>
     <%= link_to "Sign in", new_user_session_path %>
   <% end %>
-<!-- </div> -->
