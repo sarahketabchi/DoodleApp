@@ -3,6 +3,7 @@ class FavoritesController < ApplicationController
   
   def create
     @user = current_user
+    # REV: you don't need to fetch the Image, do you?
     @image = Image.find(params[:image_id])
 
     @favorite = Favorite.create!(:user_id => @user.id, :image_id => @image.id)

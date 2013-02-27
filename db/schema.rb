@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20130226172517) do
   add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
 
   create_table "images", :force => true do |t|
+    # REV: probably should have been binary? Don't know that it
+    # matters a lot.
     t.text     "img"
     t.integer  "user_id"
     t.datetime "created_at", :null => false

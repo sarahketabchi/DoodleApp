@@ -1,4 +1,5 @@
 module ImagesHelper
+  # REV: this should be a model method
   def favorited?(user_id, image_id)
     if Favorite.where(:user_id => user_id, :image_id => image_id).length > 0
       return true

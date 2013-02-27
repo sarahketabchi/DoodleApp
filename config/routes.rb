@@ -7,7 +7,7 @@ DoodleApp::Application.routes.draw do
   end
 
   resources :users, :only => [:index, :show]
-
+  # REV: trim extra trailing whitespace; looks wonky.
 
 
 
