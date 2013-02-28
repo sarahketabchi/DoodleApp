@@ -24,8 +24,8 @@
 
       var params = { user_id: userID, img: imgData, authenticity_token: csrfToken };
 
-      $.post('/images/', params, function () {
-        alert("saved :)");
+      $.post('/images/', params, function (data) {
+        window.location = '/users/' + data;
       }, "json");
     });
   });

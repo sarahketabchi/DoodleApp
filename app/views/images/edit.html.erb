@@ -29,10 +29,8 @@
 
     var params = { id: $('#canvas').attr('data-image-id'), img: newImgData, "_method":"put" }
 
-    $.post('/images/' + $('#canvas').attr('data-image-id'), params, function () {
-        alert("Your contribution has been saved");
+    $.post('/images/' + $('#canvas').attr('data-image-id'), params, function (data) {
+        window.location = '/users/' + data;
       }, "json");
-
-    
   });
 </script>

@@ -17,10 +17,8 @@ class ImagesController < ApplicationController
 
     if @image.save!
       respond_to do |format|
-        format.json { render :json => @image }
-      # render nothing true instead?
+        format.json { render :json => @image.user_id }
       end
-      # redirect_to root_path?
     else
       render :nothing => true, :status => 500
     end
@@ -55,10 +53,8 @@ class ImagesController < ApplicationController
       end
 
       respond_to do |format|
-        format.json { render :json => @image }
-        # render nothing true instead?
+        format.json { render :json => current_user.id }
       end
-      # redirect_to root_path?
     else
       render :nothing => true, :status => 500
     end
