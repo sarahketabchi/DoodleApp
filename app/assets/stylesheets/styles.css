@@ -98,16 +98,30 @@ img {
 /*  float: left;*/
 }
 
-
-
 #navbar {
-  height: 20px;
-/*  background-color: #333344;*/
+  height: 50px;
+  background-color: #333344;
+  text-align: center;
+  border-radius: 5px;
 }
 
 #navbar a {
 /*  float: right;*/
-  padding: 5px;
+/*  margin-top: 10px;*/
+  padding: 15px;
+  color: white;
+  margin: auto;
+  text-decoration: none;
+}
+
+#nav-bar-ul {
+  display: inline-block;
+  list-style-type: none;
+  text-align: center;
+}
+
+#nav-bar-ul li {
+  display: inline;
 }
 
 #body-container {
