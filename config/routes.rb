@@ -7,8 +7,4 @@ DoodleApp::Application.routes.draw do
   end
 
   resources :users, :only => [:index, :show]
-
-
-
-
 end

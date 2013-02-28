@@ -26,12 +26,6 @@ var Doodle = (function () {
     $('#canvas').mouseup(function (event) {
       that.drawing = false;
     });  
-
-    // this.save = function() {
-    //   alert("saving");
-    //   var canvas = document.getElementById('canvas');
-    //   var img = canvas.toDataURL("image/png");
-    // };
   }
 
   return {
