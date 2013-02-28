@@ -93,9 +93,9 @@ img {
   display: block;
 }*/
 
-#artist-name {
+.artist-names {
   font-size: 12px;
-  float: left;
+/*  float: left;*/
 }
 
 #navbar {

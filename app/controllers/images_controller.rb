@@ -18,6 +18,7 @@ class ImagesController < ApplicationController
     if @image.save!
       respond_to do |format|
         format.json { render :json => @image }
+      # render nothing true instead?
       end
       # redirect_to root_path?
     else
@@ -41,5 +42,23 @@ class ImagesController < ApplicationController
 
   def edit
     @image = Image.find(params[:id])
+  end
+
+  def update
+    @image = Image.find(params[:id])
+    @image.img = params[:img];
+
+    # if current_user.id == @image.user_id
+    #   Contributor.create
+
+    if @image.save!
+      respond_to do |format|
+        format.json { render :json => @image }
+        # render nothing true instead?
+      end
+      # redirect_to root_path?
+    else
+      render :nothing => true, :status => 500
+    end
   end
 end

@@ -16,9 +16,11 @@
             :class => "delete-icon"), image_path(@image), :method => :delete %>
     <%= link_to "Edit this doodle", edit_image_path(@image) %>
   <% else %>
-    <%= link_to "Contribute to this doodle", edit_image_path(@image) %>
-    <div id="artist-name">
-      by <%= link_to @image.user.email, user_path(@image.user) %>
+    <div class="contribute-container">
+      <%= link_to "Contribute to this doodle", edit_image_path(@image) %>
+      <div class="artist-names">
+        by <%= link_to @image.user.email, user_path(@image.user) %>
+      </div>
     </div>
   <% end %>
 </div>

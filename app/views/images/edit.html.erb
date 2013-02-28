@@ -1,13 +1,14 @@
 <h1>Add to Doodle!</h1>
 
 <div id="canvas-div">
-  <canvas id="canvas" width="600px" height="400px" data-user-id="<%= current_user.id %>" data-image="<%= @image.img%>"></canvas>
+  <canvas id="canvas" width="600px" height="400px" 
+    data-user-id="<%= current_user.id %>" data-image="<%= @image.img%>" 
+    data-image-id="<%= @image.id %>"></canvas>
 
   <div id="save-canvas">
     Save!  
   </div>
 </div>
-
 
 <script type="text/javascript">
   var canvas = $('#canvas');
@@ -21,28 +22,15 @@
   };
   imgObj.src = img;
 
-  // $('#save-canvas').click(function () {
-  //   var canvas = document.getElementById('canvas');
-  //   var imgData = canvas.toDataURL("image/png");
-  //   var user_id = $('#canvas').attr('data-user-id');
-  //   var csrfToken = $('meta[name=csrf-token]').attr('content');
-  // });
+  $('#save-canvas').click(function () {
+    var canvas = document.getElementById('canvas');
+    var newImgData = canvas.toDataURL("image/png");
+    // var imageID = $('#canvas').attr('data-image-id');
 
+    var params = { id: $('#canvas').attr('data-image-id'), img: newImgData, "_method":"put" }
 
-  // $('#save-canvas').click(function () {
-  //   var canvas = document.getElementById('canvas');
-  //   var imgData = canvas.toDataURL("image/png");
-  //   var userID = $('#canvas').attr('data-user-id');
-  //   var csrfToken = $('meta[name=csrf-token]').attr('content');
-
-
-  //   console.log(csrfToken);
-
-  //   var params = { user_id: userID, img: imgData, authenticity_token: csrfToken };
-
-  //   $.post('/images/', params, function () {
-  //     alert("saved :)");
-  //   }, "json");
-  // });
-
+    $.post('/images/' + $('#canvas').attr('data-image-id'), params, function () {
+        alert("Your contribution has been saved");
+      }, "json");
+  });
 </script>
