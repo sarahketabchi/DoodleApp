@@ -25,7 +25,6 @@
   $('#save-canvas').click(function () {
     var canvas = document.getElementById('canvas');
     var newImgData = canvas.toDataURL("image/png");
-    // var imageID = $('#canvas').attr('data-image-id');
 
     var params = { id: $('#canvas').attr('data-image-id'), img: newImgData, "_method":"put" }
 
