@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index]
   include ImagesHelper
 
   def index
