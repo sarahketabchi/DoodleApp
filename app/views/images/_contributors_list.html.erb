@@ -1,2 +1,6 @@
-<%= link_to user.email, user_path(user) %>
+<% if current_user.id == user.id %>
+  <%= link_to "me", user_path(user) %>
+<% else %>
+  <%= link_to user.email, user_path(user) %>
+<% end %>
 

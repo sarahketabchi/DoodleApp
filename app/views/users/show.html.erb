@@ -1,4 +1,10 @@
-<h1><%= "#{@user.email}'s profile" %></h1>
+<h1>
+  <% if current_user.id == @user.id %>
+    My profile
+  <% else %>
+    <%= "#{@user.email}'s profile" %>
+  <% end %>
+</h1>
 
 Doodles:
 <div class="image-thumbnails-list">
