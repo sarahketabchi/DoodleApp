@@ -38,4 +38,8 @@ class ImagesController < ApplicationController
 
     redirect_to user_path(current_user)
   end
+
+  def edit
+    @image = Image.find(params[:id])
+  end
 end

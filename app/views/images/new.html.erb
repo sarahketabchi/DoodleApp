@@ -22,9 +22,6 @@
       var userID = $('#canvas').attr('data-user-id');
       var csrfToken = $('meta[name=csrf-token]').attr('content');
 
-
-      console.log(csrfToken);
-
       var params = { user_id: userID, img: imgData, authenticity_token: csrfToken };
 
       $.post('/images/', params, function () {
