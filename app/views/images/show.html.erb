@@ -18,7 +18,7 @@
     <div class="contribute-container">
       <div class="contributor-names">
         contributors: <%= render :partial => 'contributors_list.html.erb', 
-            :collection => @image.contributed_users, :as => :user %>
+            :collection => @contributed_users, :as => :user %>
       </div>
     </div>
   <% else %>
@@ -29,7 +29,7 @@
       </div>
       <div class="contributor-names">
         contributors: <%= render :partial => 'contributors_list.html.erb', 
-            :collection => @image.contributed_users, :as => :user %>
+            :collection => @contributed_users, :as => :user %>
       </div>
     </div>
   <% end %>

@@ -30,6 +30,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
 
     @user = current_user
+    @contributed_users = @image.contributed_users.uniq {|user| user.id} 
     @favorited = favorited?(current_user.id, @image.id)
   end
 
