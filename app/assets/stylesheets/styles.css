@@ -60,7 +60,6 @@ img {
 #fav:hover {
   cursor: hand;
   cursor: pointer;
-  background-color: red;
 }
 
 /*#fav p {
@@ -84,7 +83,6 @@ img {
 #unfav:hover {
   cursor: hand;
   cursor: pointer;
-  background-color: white;
 }
 /*
 #unfav p {
