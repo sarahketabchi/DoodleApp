@@ -93,10 +93,12 @@ img {
   display: block;
 }*/
 
-.artist-names {
+.artist-names, .contributor-names {
   font-size: 12px;
 /*  float: left;*/
 }
+
+
 
 #navbar {
   height: 20px;

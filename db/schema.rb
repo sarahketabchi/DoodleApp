@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226172517) do
+ActiveRecord::Schema.define(:version => 20130228192342) do
+
+  create_table "contributors", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "image_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "contributors", ["image_id"], :name => "index_contributors_on_image_id"
+  add_index "contributors", ["user_id"], :name => "index_contributors_on_user_id"
 
   create_table "favorites", :force => true do |t|
     t.integer  "user_id"

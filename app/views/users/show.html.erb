@@ -1,12 +1,18 @@
 <h1><%= "#{@user.email}'s profile" %></h1>
 
-Images:
+Doodles:
 <div class="image-thumbnails-list">
   <%= render :partial => 'images/images_display.html.erb', 
              :collection => @images, :as => :image %>
 </div>
 
-Favorited Images:
+Contributed to:
+<div class="image-thumbnails-list">
+  <%= render :partial => 'images/images_display.html.erb', 
+             :collection => @contributed_images, :as => :image %>
+</div>
+
+Favorited Doodles:
 <div class="image-thumbnails-list">
   <%= render :partial => 'images/images_display.html.erb', 
              :collection => @favorited_images, :as => :image %>

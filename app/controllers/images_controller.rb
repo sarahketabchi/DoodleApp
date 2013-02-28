@@ -48,10 +48,11 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @image.img = params[:img];
 
-    # if current_user.id == @image.user_id
-    #   Contributor.create
-
     if @image.save!
+      if current_user.id != @image.user_id
+        Contributor.create!(:user_id => current_user.id, :image_id => @image.id)
+      end
+
       respond_to do |format|
         format.json { render :json => @image }
         # render nothing true instead?

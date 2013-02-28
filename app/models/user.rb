@@ -13,4 +13,7 @@ class User < ActiveRecord::Base
   has_many :images
   has_many :favorites
   has_many :favorited_images, :through => :favorites, :source => :image
+
+  has_many :contributors
+  has_many :contributed_images, :through => :contributors, :source => :image
 end

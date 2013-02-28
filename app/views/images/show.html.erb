@@ -15,11 +15,21 @@
     <%= link_to image_tag("recycle_icon.png", :height => 25, :width => 25, 
             :class => "delete-icon"), image_path(@image), :method => :delete %>
     <%= link_to "Edit this doodle", edit_image_path(@image) %>
+    <div class="contribute-container">
+      <div class="contributor-names">
+        contributors: <%= render :partial => 'contributors_list.html.erb', 
+            :collection => @image.contributed_users, :as => :user %>
+      </div>
+    </div>
   <% else %>
     <div class="contribute-container">
       <%= link_to "Contribute to this doodle", edit_image_path(@image) %>
       <div class="artist-names">
         by <%= link_to @image.user.email, user_path(@image.user) %>
+      </div>
+      <div class="contributor-names">
+        contributors: <%= render :partial => 'contributors_list.html.erb', 
+            :collection => @image.contributed_users, :as => :user %>
       </div>
     </div>
   <% end %>
