@@ -39,15 +39,23 @@
       <% end %>
       <%= link_to "Contribute to this doodle", edit_image_path(@image) %>
       <div id="add-comment">
-        <%= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
+<!--         Add a comment -->
+        <%#= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
       </div>
     </div>
   <% end %>
 </div>
 
 <div class="comments-container">
-  <%= render :partial => 'comments/display_comments.html.erb', :collection => @image.comments, :as => :comment %>
+  <div class="comments">
+    <%= render :partial => 'comments/display_comments.html.erb', :collection => @image.comments, :as => :comment %>
+  </div>
+  <div class="new-comment-form">
+    <%= render partial: "comments/form_new", object: @image %>
+  </div>
 </div>
+
+
 
 
 <script type="text/javascript">
@@ -56,6 +64,16 @@
       console.log("yay");
       $('#fav, #unfav').toggle();
     });
+
+    $('#new_comment').bind('ajax:success', function (event, data) {
+      console.log(data);
+      $(this).closest('form').find("input[type=text], textarea").val("");
+      $('.comments').append(data);
+    });
+    // $('#add-comment').click(function () {
+    //   alert("word");
+    //   $('.comments-container').append();
+    // });
   });
 </script>
 

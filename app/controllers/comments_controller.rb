@@ -7,13 +7,23 @@ class CommentsController < ApplicationController
     @comment = @image.comments.build
   end
 
-  def create
-    @comment = Comment.create!(params[:comment])
+  # def create
+  #   @comment = Comment.create!(params[:comment])
 
-    if @comment
-      redirect_to image_path(@comment.image_id)
-    else
-      render 'new'
+  #   if @comment
+  #     redirect_to image_path(@comment.image_id)
+  #   else
+  #     render 'new'
+  #   end
+  # end
+
+  def create
+    @comment = Comment.new(params[:comment])
+    @comment.user_id = current_user.id
+
+    if @comment.save!
+      render partial: "comments/display_comments", :locals => {:comment => @comment}
+    #add else
     end
   end
 
