@@ -118,6 +118,7 @@ img {
   display: inline-block;
   list-style-type: none;
   text-align: center;
+  padding: 0px;
 }
 
 #nav-bar-ul li {
