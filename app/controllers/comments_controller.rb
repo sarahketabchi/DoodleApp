@@ -16,4 +16,12 @@ class CommentsController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    imageId = @comment.image_id
+    @comment.destroy
+
+    redirect_to image_path(imageId) 
+  end
 end
