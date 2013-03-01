@@ -1,6 +1,5 @@
 class ImagesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
-  include ImagesHelper
 
   def index
     @images = Image.all
@@ -29,7 +28,7 @@ class ImagesController < ApplicationController
 
     @user = current_user
     @contributed_users = @image.contributed_users.uniq {|user| user.id} 
-    @favorited = favorited?(current_user.id, @image.id)
+    @favorited = @image.favorited?(current_user.id, @image.id)
   end
 
   def destroy
