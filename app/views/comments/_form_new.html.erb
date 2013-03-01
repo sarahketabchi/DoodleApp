@@ -1,7 +1,6 @@
 
 <%= simple_form_for @image.comments.build, remote: true do |f| %>
   <%= f.hidden_field :image_id %>
-  <%#= f.hidden_field :user_id, :value => current_user.id %>
 
   <%= f.input :body, :label => false, placeholder: "comment...", :input_html => { :rows => 3 } %>
 

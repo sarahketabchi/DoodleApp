@@ -22,9 +22,6 @@
         </div>
       <% end %>
       <%= link_to "Edit this doodle", edit_image_path(@image) %>
-<!--       <div id="add-comment">
-        <%#= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
-      </div> -->
     </div>
   <% else %>
     <div class="contribute-container">
@@ -38,10 +35,6 @@
         </div>
       <% end %>
       <%= link_to "Contribute to this doodle", edit_image_path(@image) %>
-<!--       <div id="add-comment">
-        Add a comment
-        <%#= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
-      </div> -->
     </div>
   <% end %>
 </div>
@@ -52,7 +45,6 @@
   </div>
   <div id="add-comment">
     Add a comment
-    <%#= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
   </div>
   <div class="new-comment-form">
     <%= render partial: "comments/form_new", object: @image %>
