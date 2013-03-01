@@ -2,8 +2,8 @@
 
 <div id="canvas-div">
   <canvas id="canvas" width="600px" height="400px" 
-    data-user-id="<%= current_user.id %>" data-image="<%= @image.img%>" 
-    data-image-id="<%= @image.id %>"></canvas>
+    data-user-id="<%= current_user.id %>" data-image-id="<%= @image.id %>">
+  </canvas>
 
   <div id="save-canvas">
     Save!  
@@ -13,7 +13,7 @@
 <script type="text/javascript">
   var canvas = $('#canvas');
   var ctx = canvas.get(0).getContext("2d");
-  var img = $('#canvas').attr('data-image');
+  var img = "<%= @image.img %>";
 
   var imgObj = new Image();
   imgObj.onload = function () {

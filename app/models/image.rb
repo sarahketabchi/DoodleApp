@@ -5,4 +5,6 @@ class Image < ActiveRecord::Base
 
   has_many :contributors, :dependent => :destroy
   has_many :contributed_users, :through => :contributors, :source => :user
+
+  has_many :comments, :dependent => :destroy
 end

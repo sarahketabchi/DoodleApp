@@ -16,4 +16,6 @@ class User < ActiveRecord::Base
 
   has_many :contributors
   has_many :contributed_images, :through => :contributors, :source => :image
+
+  has_many :comments
 end
