@@ -21,8 +21,11 @@
             :collection => @contributed_users, :as => :user %>
         </div>
       <% end %>
+      <%= link_to "Edit this doodle", edit_image_path(@image) %>
+      <div id="add-comment">
+        <%= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
+      </div>
     </div>
-    <%= link_to "Edit this doodle", edit_image_path(@image) %>
   <% else %>
     <div class="contribute-container">
       <div class="artist-names">
