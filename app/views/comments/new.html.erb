@@ -1,0 +1,8 @@
+<%= simple_form_for(@comment) do |f| %>
+  <%= f.hidden_field :image_id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= f.input :body %>
+
+  <%= f.button :submit %>
+<% end %>

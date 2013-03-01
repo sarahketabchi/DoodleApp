@@ -14,7 +14,6 @@
   <% if @image.user_id == current_user.id %>
     <%= link_to image_tag("recycle_icon.png", :height => 25, :width => 25, 
             :class => "delete-icon"), image_path(@image), :method => :delete %>
-    <%= link_to "Edit this doodle", edit_image_path(@image) %>
     <div class="contribute-container">
       <% if @contributed_users.length > 0 %>
         <div class="contributor-names">
@@ -23,9 +22,9 @@
         </div>
       <% end %>
     </div>
+    <%= link_to "Edit this doodle", edit_image_path(@image) %>
   <% else %>
     <div class="contribute-container">
-      <%= link_to "Contribute to this doodle", edit_image_path(@image) %>
       <div class="artist-names">
         by <%= link_to @image.user.email, user_path(@image.user) %>
       </div>
@@ -35,8 +34,16 @@
               :collection => @contributed_users, :as => :user %>
         </div>
       <% end %>
+      <%= link_to "Contribute to this doodle", edit_image_path(@image) %>
+      <div id="add-comment">
+        <%= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
+      </div>
     </div>
   <% end %>
+</div>
+
+<div class="comments-container">
+  <%= render :partial => 'comments/display_comments.html.erb', :collection => @image.comments, :as => :comment %>
 </div>
 
 

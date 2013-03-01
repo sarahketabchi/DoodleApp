@@ -40,6 +40,19 @@ h1 {
   margin: auto;
 }
 
+.comments-container {
+  padding-top: 25px;
+  width: 700px;
+  margin: auto;
+}
+
+.comment {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  margin:7px;
+}
+
 img {
   border: 1px solid black;
   margin: auto;
@@ -96,6 +109,11 @@ img {
 .artist-names, .contributor-names {
   font-size: 12px;
 /*  float: left;*/
+}
+
+.author-name {
+  font-size: 12px;
+  text-align: right;
 }
 
 #navbar {

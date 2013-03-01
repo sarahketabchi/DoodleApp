@@ -7,4 +7,6 @@ DoodleApp::Application.routes.draw do
   end
 
   resources :users, :only => [:index, :show]
+
+  resources :comments
 end
