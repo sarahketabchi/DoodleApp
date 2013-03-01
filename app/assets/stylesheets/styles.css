@@ -179,3 +179,7 @@ img {
 .new-comment-form {
   display: none;
 }
+
+#add-comment {
+  float: right;
+}

@@ -6,8 +6,9 @@
   </div>
 
   <% if comment.user.id == current_user.id %>
-    <div class="delete-comment">
-      <%= link_to "Delete comment", comment_path(comment), :method => :delete %>
+    <div class="delete-comment" data-comment-id="<%= comment.id %>">
+      Delete comment
+      <%#= link_to "Delete comment", comment_path(comment), :method => :delete %>
     </div>
   <% end %>
 </div>

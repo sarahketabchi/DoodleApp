@@ -22,9 +22,9 @@
         </div>
       <% end %>
       <%= link_to "Edit this doodle", edit_image_path(@image) %>
-      <div id="add-comment">
-        <%= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
-      </div>
+<!--       <div id="add-comment">
+        <%#= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
+      </div> -->
     </div>
   <% else %>
     <div class="contribute-container">
@@ -38,10 +38,10 @@
         </div>
       <% end %>
       <%= link_to "Contribute to this doodle", edit_image_path(@image) %>
-      <div id="add-comment">
+<!--       <div id="add-comment">
         Add a comment
         <%#= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
-      </div>
+      </div> -->
     </div>
   <% end %>
 </div>
@@ -49,6 +49,10 @@
 <div class="comments-container">
   <div class="comments">
     <%= render :partial => 'comments/display_comments.html.erb', :collection => @image.comments, :as => :comment %>
+  </div>
+  <div id="add-comment">
+    Add a comment
+    <%#= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
   </div>
   <div class="new-comment-form">
     <%= render partial: "comments/form_new", object: @image %>
@@ -67,6 +71,7 @@
 
     $('#add-comment').click(function () {
       $('.new-comment-form').toggle();
+      $('#add-comment').toggle();
     })
 
     $('#new_comment').bind('ajax:success', function (event, data) {
@@ -74,11 +79,21 @@
       $(this).closest('form').find("input[type=text], textarea").val("");
       $('.new-comment-form').toggle();
       $('.comments').append(data);
+      $('#add-comment').toggle();
     });
-    // $('#add-comment').click(function () {
-    //   alert("word");
-    //   $('.comments-container').append();
-    // });
+ 
+    $('.comments-container').on("click", '.delete-comment', function () {
+      var that = this;
+      var comment_id = $(that).attr('data-comment-id');
+
+      $.post(
+        '/comments/' + comment_id,
+        { "_method":"delete" },
+        function () {
+          $(that).parent().remove();
+        }
+      );
+    });
   });
 </script>
 
