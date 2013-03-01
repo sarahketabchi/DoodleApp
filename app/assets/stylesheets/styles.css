@@ -34,13 +34,13 @@ h1 {
 }
 
 #show-image-container {
-  width: 600px;
+  width: 60%;
   margin: auto;
 }
 
 .comments-container {
   padding-top: 25px;
-  width: 700px;
+  width: 70%;
   margin: auto;
 }
 
@@ -58,6 +58,7 @@ img {
   margin: auto;
   position: relative;
   display: block;
+  width: 100%;
 }
 
 #fav {
