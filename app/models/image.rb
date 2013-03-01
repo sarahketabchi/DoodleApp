@@ -3,6 +3,6 @@ class Image < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :contributors
+  has_many :contributors, :dependent => :destroy
   has_many :contributed_users, :through => :contributors, :source => :user
 end
