@@ -10,7 +10,6 @@
   <%= button_to "", image_favorite_path(@image), :method => :delete, 
         :remote => true, :id => "unfav", :hidden => (not @favorited) %>
 
-
   <% if @image.user_id == current_user.id %>
     <%= link_to image_tag("recycle_icon.png", :height => 25, :width => 25, 
             :class => "delete-icon"), image_path(@image), :method => :delete %>
@@ -23,6 +22,7 @@
       <% end %>
       <%= link_to "Edit this doodle", edit_image_path(@image) %>
     </div>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="Contribute to my Doodle!">Tweet</a>
   <% else %>
     <div class="contribute-container">
       <div class="artist-names">
@@ -50,8 +50,6 @@
     <%= render partial: "comments/form_new", object: @image %>
   </div>
 </div>
-
-
 
 
 <script type="text/javascript">
@@ -86,6 +84,8 @@
         }
       );
     });
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   });
 </script>
 
