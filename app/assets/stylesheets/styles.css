@@ -176,6 +176,6 @@ img {
   border-color: gray;
 }
 
-
-
-
+.new-comment-form {
+  display: none;
+}

@@ -39,7 +39,7 @@
       <% end %>
       <%= link_to "Contribute to this doodle", edit_image_path(@image) %>
       <div id="add-comment">
-<!--         Add a comment -->
+        Add a comment
         <%#= link_to "Add a comment", new_comment_path(:image_id => @image.id) %>
       </div>
     </div>
@@ -65,9 +65,14 @@
       $('#fav, #unfav').toggle();
     });
 
+    $('#add-comment').click(function () {
+      $('.new-comment-form').toggle();
+    })
+
     $('#new_comment').bind('ajax:success', function (event, data) {
       console.log(data);
       $(this).closest('form').find("input[type=text], textarea").val("");
+      $('.new-comment-form').toggle();
       $('.comments').append(data);
     });
     // $('#add-comment').click(function () {
