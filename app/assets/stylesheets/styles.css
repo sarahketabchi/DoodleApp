@@ -170,4 +170,12 @@ img {
   float: right;
 }
 
+#comment_body {
+  border-radius: 4px;
+  width: 100%;
+  border-color: gray;
+}
+
+
+
 
