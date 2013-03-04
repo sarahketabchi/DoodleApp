@@ -18,4 +18,14 @@ class User < ActiveRecord::Base
   has_many :contributed_images, :through => :contributors, :source => :image
 
   has_many :comments
+
+  has_many :friendships
+  has_many :friends, :through => :friendships,
+                     :conditions => ['status = ?', 'accepted']
+  has_many :pending_friends, :through => :friendships,
+                     :source => :friend,
+                     :conditions => ['status = ?', 'pending']
+  has_many :requested_friends, :through => :friendships,
+                     :source => :friend,
+                     :conditions => ['status = ?', 'requested']
 end

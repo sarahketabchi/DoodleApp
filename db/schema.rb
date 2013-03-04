@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301003750) do
+ActiveRecord::Schema.define(:version => 20130304222939) do
 
   create_table "comments", :force => true do |t|
     t.integer  "image_id"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20130301003750) do
 
   add_index "favorites", ["user_id", "image_id"], :name => "index_favorites_on_user_id_and_image_id", :unique => true
   add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "images", :force => true do |t|
     t.text     "img"
