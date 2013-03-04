@@ -38,6 +38,12 @@ h1 {
   margin: auto;
 }
 
+.show-top-image {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
 .comments-container {
   padding-top: 25px;
   width: 70%;

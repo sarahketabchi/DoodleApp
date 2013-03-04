@@ -1,0 +1,11 @@
+<h1>Doodles!</h1>
+  
+<div class="show-top-image">
+  <%= link_to image_tag(@top_image.img), image_path(@top_image) %>
+</div>
+
+
+<div class="image-thumbnails-list">
+  <%= render :partial => 'images/images_display.html.erb', 
+           :collection => @images, :as => :image %>
+</div>

@@ -8,6 +8,8 @@ class Image < ActiveRecord::Base
 
   has_many :comments, :dependent => :destroy
 
+  has_many :favorites
+
   def favorited?(user_id, image_id)
     if Favorite.where(:user_id => user_id, :image_id => image_id).length > 0
       return true

@@ -1,5 +1,5 @@
 DoodleApp::Application.routes.draw do
-  root :to => "images#index"
+  root :to => 'welcome#index'
   devise_for :users
 
   resources :images do
