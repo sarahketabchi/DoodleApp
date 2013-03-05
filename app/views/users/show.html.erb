@@ -14,6 +14,21 @@
             :form_class => "add-friend-btn" %>
 </div>
 
+<% if current_user.id == @user.id %>
+  <div id="pending-friends">
+    Pending friend requests:
+    <ul id="pending-friends-list">
+      <%= render :partial => 'friends/pending_friends.html.erb',
+                 :collection => current_user.pending_friendships, 
+                 :as => :pending_friendship %>
+    </ul>
+  </div>
+<% end %>
+
+<div id="friends-list">
+  Friends:
+</div>
+
 Doodles:
 <div class="image-thumbnails-list">
   <%= render :partial => 'images/images_display.html.erb', 

@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
   has_many :requested_friends, :through => :friendships,
                      :source => :friend,
                      :conditions => ['status = ?', 'requested']
+
+
+  has_many :pending_friendships, :class_name => "Friendship",
+                     :conditions => ['status = ?', 'pending']
 end

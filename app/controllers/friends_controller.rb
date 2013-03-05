@@ -8,7 +8,12 @@ class FriendsController < ApplicationController
   end
 
   def destroy
-    
+    @friendship = Friendship.find(params[:id])
+    #delete inverse friendship
+    Friendship.where(:user_id => @friendship.friend_id, :friend_id => @friendship.user_id, :status => "requested").first.destroy
+    @friendship.destroy
+
+    redirect_to user_path(current_user)
   end
 end
 
