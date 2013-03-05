@@ -6,6 +6,14 @@
   <% end %>
 </h1>
 
+<div id="friend-buttons" class="<%= which_friend_btn(@user) %>">
+      <%= button_to "Friends", user_path(@user), :form_class => "friends-btn" %>
+      <%= button_to "Friend requested", user_path(@user), :form_class => "friend-requested-btn" %>
+      <%= button_to "Friend pending", user_path(@user), :form_class => "friend-pending-btn" %>
+      <%= button_to "Add Friend", user_friends_path(@user), :remote => true, 
+            :form_class => "add-friend-btn" %>
+</div>
+
 Doodles:
 <div class="image-thumbnails-list">
   <%= render :partial => 'images/images_display.html.erb', 
@@ -25,4 +33,15 @@ Favorited Doodles:
 </div>
 
 
+<script type="text/javascript">
+  $(function () {
+    $('.add-friend-btn').on('ajax:success', function () {
+      console.log("yay");
+      $('#friend-buttons').removeClass();
+      $('#friend-buttons').addClass("requested");
+      // $('.add-friend-btn, .friend-requested-btn').toggle();
+    });
 
+
+  });
+</script>

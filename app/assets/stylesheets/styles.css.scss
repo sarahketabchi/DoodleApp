@@ -168,3 +168,76 @@ img {
 #add-comment {
   float: right;
 }
+
+#friend-buttons {
+  &.none {
+    .friends-btn {
+      display: none;
+    }
+    .friend-requested-btn {
+      display: none;
+    }
+    .friend-pending-btn {
+      display: none;
+    }
+    .add-friend-btn {
+      display: none;
+    }
+  }
+
+  &.friends {
+    .friends-btn {}
+    .friend-requested-btn {
+      display: none;
+    }
+    .friend-pending-btn {
+      display: none;
+    }
+    .add-friend-btn {
+      display: none;
+    }
+  }
+
+  &.requested {
+    .friends-btn {
+      display: none;
+    }
+    .friend-requested-btn {
+    }
+    .friend-pending-btn {
+      display: none;
+    }
+    .add-friend-btn {
+      display: none;
+    }
+  }
+
+  &.pending {
+    .friends-btn {
+      display: none;
+    }
+    .friend-requested-btn {
+      display: none;
+    }
+    .friend-pending-btn {}
+    .add-friend-btn {
+      display: none;
+    }
+  }
+
+  &.add {
+    .friends-btn {
+      display: none;
+    }
+    .friend-requested-btn {
+      display: none;
+    }
+    .friend-pending-btn {
+      display: none;
+    }
+    .add-friend-btn {}
+  }
+}
+
+
+

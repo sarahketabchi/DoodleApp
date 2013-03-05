@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   has_many :comments
 
-  has_many :friendships
+  has_many :friendships, :dependent => :destroy
   has_many :friends, :through => :friendships,
                      :conditions => ['status = ?', 'accepted']
   has_many :pending_friends, :through => :friendships,

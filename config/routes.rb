@@ -6,7 +6,11 @@ DoodleApp::Application.routes.draw do
     resource :favorite, :only => [:create, :destroy]
   end
 
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show] do
+    resources :friends
+  end
 
   resources :comments
+
+  #resources :friends
 end
