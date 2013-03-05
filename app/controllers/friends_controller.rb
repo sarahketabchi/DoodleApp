@@ -15,5 +15,17 @@ class FriendsController < ApplicationController
 
     redirect_to user_path(current_user)
   end
+
+  def update
+    @friendship = Friendship.find(params[:id])
+    @friendship.status = "accepted"
+    @friendship.save!
+
+    @inverse_friendship = Friendship.where(:user_id => @friendship.friend_id, :friend_id => @friendship.user_id, :status => "requested").first
+    @inverse_friendship.status = "accepted"
+    @inverse_friendship.save!
+
+    redirect_to user_path(current_user)
+  end
 end
 

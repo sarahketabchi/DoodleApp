@@ -25,8 +25,13 @@
   </div>
 <% end %>
 
-<div id="friends-list">
+<div id="friends">
   Friends:
+  <ul id="friends-list">
+    <%= render :partial => 'friends/friends.html.erb',
+               :collection => current_user.friends,
+               :as => :friend %>
+  </ul>
 </div>
 
 Doodles:

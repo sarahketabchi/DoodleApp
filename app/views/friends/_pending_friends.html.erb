@@ -5,7 +5,7 @@
     <%= link_to pending_friendship.friend.email, user_path(pending_friendship.friend) %>
   </div>
   <div class="pending-friend-accept-btn">
-    <%= button_to "Accept", user_path(current_user) %>
+    <%= button_to "Accept", user_friend_path(current_user.id, pending_friendship.id), :method => :put %>
   </div>
   <div class="pending-friend-decline-btn">
     <%= button_to "Ignore", user_friend_path(current_user.id, pending_friendship.id),
