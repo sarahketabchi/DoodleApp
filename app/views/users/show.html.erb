@@ -29,8 +29,8 @@
   Friends:
   <ul id="friends-list">
     <%= render :partial => 'friends/friends.html.erb',
-               :collection => current_user.friends,
-               :as => :friend %>
+               :collection => @user.friend_ships,
+               :as => :friend_ship %>
   </ul>
 </div>
 
@@ -59,7 +59,6 @@ Favorited Doodles:
       console.log("yay");
       $('#friend-buttons').removeClass();
       $('#friend-buttons').addClass("requested");
-      // $('.add-friend-btn, .friend-requested-btn').toggle();
     });
 
 

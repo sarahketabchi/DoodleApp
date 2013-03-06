@@ -1,3 +1,6 @@
 <li class="friend">
-  <%= link_to friend.email, user_path(friend) %>
+  <%= link_to friend_ship.friend.email, user_path(friend_ship.friend) %>
+  <!-- only show this delete option if you're on your own page!  -->
+  <%= button_to "Delete friend", user_friend_path(current_user.id, friend_ship.id),
+        :method => :delete %>
 </li>
