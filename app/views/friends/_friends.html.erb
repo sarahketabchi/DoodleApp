@@ -1,9 +1,12 @@
 <li class="friend">
-  <%= link_to friend_ship.friend.email, user_path(friend_ship.friend) %>
+  <div class="friend-link">
+    <%= link_to friend_ship.friend.email, user_path(friend_ship.friend) %>
+  </div>
 
-  <!-- only show this delete option if you're on your own page!  -->
   <% if current_user == friend_ship.user %>
-    <%= button_to "Delete friend", user_friend_path(current_user.id, friend_ship.id),
-        :method => :delete %>
+    <div class="delete-friend-btn">
+      <%= button_to "Delete friend", user_friend_path(current_user.id, friend_ship.id), 
+            :method => :delete %>
+    </div>
   <% end %>
 </li>

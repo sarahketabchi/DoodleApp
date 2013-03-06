@@ -7,14 +7,15 @@
 </h1>
 
 <div id="friend-buttons" class="<%= which_friend_btn(@user) %>">
-      <%= button_to "Friends", user_path(@user), :form_class => "friends-btn" %>
-      <%= button_to "Friend requested", user_path(@user), :form_class => "friend-requested-btn" %>
-      <%= button_to "Friend pending", user_path(@user), :form_class => "friend-pending-btn" %>
-      <%= button_to "Add Friend", user_friends_path(@user), :remote => true, 
+      <div class="friends-btn">You're friends!</div>
+      <div class="friend-requested-btn">Friend requested</div>
+      <%= button_to "Friend pending", user_path(current_user), :method => "get", 
+            :form_class => "friend-pending-btn" %>
+      <%= button_to "Be friends!", user_friends_path(@user), :remote => true, 
             :form_class => "add-friend-btn" %>
 </div>
 
-<% if current_user.id == @user.id %>
+<% if current_user.id == @user.id && current_user.pending_friendships.length > 0 %>
   <div id="pending-friends">
     Pending friend requests:
     <ul id="pending-friends-list">
@@ -25,14 +26,17 @@
   </div>
 <% end %>
 
-<div id="friends">
-  Friends:
-  <ul id="friends-list">
-    <%= render :partial => 'friends/friends.html.erb',
-               :collection => @user.friend_ships,
-               :as => :friend_ship %>
-  </ul>
-</div>
+
+<% if @user.friend_ships.length > 0 %>
+  <div id="friends">
+    Friends:
+    <ul id="friends-list">
+      <%= render :partial => 'friends/friends.html.erb',
+                 :collection => @user.friend_ships,
+                 :as => :friend_ship %>
+    </ul>
+  </div>
+<% end %>
 
 Doodles:
 <div class="image-thumbnails-list">
@@ -60,7 +64,5 @@ Favorited Doodles:
       $('#friend-buttons').removeClass();
       $('#friend-buttons').addClass("requested");
     });
-
-
   });
 </script>

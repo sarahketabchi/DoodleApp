@@ -170,6 +170,7 @@ img {
 }
 
 #friend-buttons {
+  margin-bottom: 10px;
   &.none {
     .friends-btn {
       display: none;
@@ -240,15 +241,21 @@ img {
 }
 
 .pending-friend-profile-link {
-  display: inline;
+  display: inline-block;
 }
 
 .pending-friend-accept-btn {
-  display: inline;
+  display: inline-block;
 }
 
 .pending-friend-decline-btn {
-  display: inline;
+  display: inline-block;
 }
 
+.friend-link {
+  display: inline-block;
+}
 
+.delete-friend-btn {
+  display: inline-block;
+}
