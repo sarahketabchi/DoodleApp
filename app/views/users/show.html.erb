@@ -38,24 +38,33 @@
   </div>
 <% end %>
 
-Doodles:
-<div class="image-thumbnails-list">
-  <%= render :partial => 'images/images_display.html.erb', 
-             :collection => @images, :as => :image %>
-</div>
+<% if @images.length > 0 %>
+  Doodles:
+  <div class="image-thumbnails-list">
+    <%= render :partial => 'images/images_display.html.erb', 
+               :collection => @images, :as => :image %>
+  </div>
+<% end %>
 
-Contributed to:
-<div class="image-thumbnails-list">
-  <%= render :partial => 'images/images_display.html.erb', 
-             :collection => @contributed_images, :as => :image %>
-</div>
+<% if @contributed_images.length > 0 %>
+  Contributed to:
+  <div class="image-thumbnails-list">
+    <%= render :partial => 'images/images_display.html.erb', 
+               :collection => @contributed_images, :as => :image %>
+  </div>
+<% end %>
 
-Favorited Doodles:
-<div class="image-thumbnails-list">
-  <%= render :partial => 'images/images_display.html.erb', 
-             :collection => @favorited_images, :as => :image %>
-</div>
+<% if @favorited_images.length > 0 %>
+  Favorited Doodles:
+  <div class="image-thumbnails-list">
+    <%= render :partial => 'images/images_display.html.erb', 
+               :collection => @favorited_images, :as => :image %>
+  </div>
+<% end %>
 
+<% if @images.length <= 0 && @contributed_images.length <= 0 && @favorited_images.length <= 0 %>
+  <p>No doodles to see here :( ... yet!</p>
+<% end %>
 
 <script type="text/javascript">
   $(function () {
