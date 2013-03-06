@@ -9,7 +9,7 @@ class FriendsController < ApplicationController
 
   def destroy
     @friendship = Friendship.find(params[:id])
-    #delete inverse friendship
+    # delete inverse friendship
     Friendship.where(:user_id => @friendship.friend_id, :friend_id => @friendship.user_id).first.destroy
     @friendship.destroy
 

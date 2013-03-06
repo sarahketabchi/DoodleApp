@@ -62,6 +62,7 @@
     $('#add-comment').click(function () {
       $('.new-comment-form').toggle();
       $('#add-comment').toggle();
+      $(window).scrollTop($(window).height());
     })
 
     $('#new_comment').bind('ajax:success', function (event, data) {
