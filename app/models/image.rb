@@ -16,7 +16,7 @@ class Image < ActiveRecord::Base
     users_images = Image.where(:user_id => user.id).pluck(:id)
 
     friends_friend_images = Image.joins("INNER JOIN friendships ON friendships.friend_id = images.user_id")
-          .where("friendships.user_id = 1")
+          .where("friendships.user_id = ?", user.id)
           .where("friendships.status = 'accepted'")
           .where("images.privacy = 'friends'")
           .pluck("images.id")
