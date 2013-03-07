@@ -13,6 +13,7 @@ class ImagesController < ApplicationController
     @image = Image.new;
     @image.user_id = current_user.id;
     @image.img = params[:img];
+    @image.privacy = params[:privacy]
 
     if @image.save!
       respond_to do |format|

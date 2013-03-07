@@ -3,10 +3,20 @@
 <div id="canvas-div">
   <canvas id="canvas" width="600px" height="400px" data-user-id="<%= current_user.id %>"></canvas>
 
+
+  <select name="privacy-options" id="privacy">
+   <option value="public">public</option>
+   <option value="friends">friends</option>
+   <option value="private">private</option>
+  </select>
+
+
   <div id="save-canvas">
     Save!  
   </div>
 </div>
+
+
 
 
 <script>
@@ -21,8 +31,11 @@
       var imgData = canvas.toDataURL("image/png");
       var userID = $('#canvas').attr('data-user-id');
       var csrfToken = $('meta[name=csrf-token]').attr('content');
+      var selectedPrivacyOption = $('#privacy').find(":selected").text();
 
-      var params = { user_id: userID, img: imgData, authenticity_token: csrfToken };
+      console.log(selectedPrivacyOption)
+
+      var params = { user_id: userID, img: imgData, authenticity_token: csrfToken, privacy: selectedPrivacyOption };
 
       $.post('/images/', params, function (data) {
         window.location = '/users/' + data;

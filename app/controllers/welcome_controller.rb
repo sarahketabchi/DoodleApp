@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    #@images = Image.all
     if (current_user == nil)
       @images = Image.where(:privacy => 'public')
     else
