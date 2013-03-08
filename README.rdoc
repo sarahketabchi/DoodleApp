@@ -6,6 +6,7 @@ canvas for drawing. Users get e-mail notifications for new friend requests.
 
 == Todo
 
+* Add facebook login
 * Allow users to edit their profiles & delete their accounts
 * Instead of modifying original doodle when contributing, keep multiple revisions
 * Add undo action when doodling
