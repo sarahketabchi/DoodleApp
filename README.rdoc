@@ -15,4 +15,4 @@ canvas for drawing. Users get e-mail notifications for new friend requests.
 
 == Enjoy!
 
-Please check out the deployed version at http://vast-cliffs-4270.herokuapp.com/
+Please check it out at http://vast-cliffs-4270.herokuapp.com/
